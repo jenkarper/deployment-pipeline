@@ -22,3 +22,12 @@ jobs:
       with:
         push: true
         tags: jenkarper/deployment-pipeline:latest
+        
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        appdir: "."
+        heroku_app_name: deployment-pipeline-exercise
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}
+        usedocker: true
